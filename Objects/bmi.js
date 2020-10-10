@@ -22,6 +22,15 @@ function calcBMI(){
 
 // calling directly Obj.method ; this is nice improvement of code
 
+/**
+ * Ternary operator for conditional check
+ */
 (detailsJohn.calculateBMI() > detailsMarks.calculateBMI()) ?  console.log(`John's BMI is higger than Marks: ${detailsJohn.BMI}`) : console.log(`Marks's BMI is higger than John: ${detailsMarks.BMI}`);
-console.log(detailsJohn);
-console.log(detailsJohn.calculateBMI());
+
+if (detailsJohn.calculateBMI() > detailsMarks.calculateBMI()){
+    console.log(`John having higger BMI:  ${detailsJohn.BMI}`);
+}else if (detailsJohn.BMI < detailsMarks.BMI){
+    console.log(`John having higger BMI:  ${detailsJohn.BMI}`);
+}else {
+    console.log('John and Mark having equal BMIs');
+}
