@@ -14,12 +14,14 @@ let detailsMarks = {
 };
 // below code looks not good. Because using this outside of Object
 function calcBMI(){
-    return this.BMI  = this.weight / (this.height * this.height);
+    return this.BMI = this.weight / (this.height * this.height);
 };
 
-detailsJohn.calculateBMI();
-detailsMarks.calculateBMI();
+// detailsJohn.calculateBMI();
+// detailsMarks.calculateBMI();
 
-(detailsJohn.BMI > detailsMarks.BMI) ?  console.log(`John's BMI is higger than Marks: ${detailsJohn.BMI}`) : console.log(`Marks's BMI is higger than John: ${detailsMarks.BMI}`);
+// calling directly Obj.method ; this is nice improvement of code
+
+(detailsJohn.calculateBMI() > detailsMarks.calculateBMI()) ?  console.log(`John's BMI is higger than Marks: ${detailsJohn.BMI}`) : console.log(`Marks's BMI is higger than John: ${detailsMarks.BMI}`);
 console.log(detailsJohn);
 console.log(detailsJohn.calculateBMI());
