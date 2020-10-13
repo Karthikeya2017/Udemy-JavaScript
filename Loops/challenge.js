@@ -30,7 +30,8 @@ function markTipCalculator(cost) {
         return 0.25 * Math.round((cost + Number.EPSILON) * 100) / 100 ;
     }
 };
-// I did a mistake is that - in line 22 adding element to billcost array, which leads infinite loop and memory crash
+// I did a mistake is that - in line 22 adding element to billcost array, which leads infinite loop and memory crash.
+// how can we use debug in Vscode or IntelliJ
 // Initally tried to declare tipamount variable which doesn't require to declare.
 // Also passed function as parameter, how we use directly?
 
