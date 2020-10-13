@@ -11,7 +11,7 @@ let JohnbillCost = [124, 48, 268, 180, 42];
 
 // this is function declaration.
 
-function tipCalculator(cost) {
+function johnTipCalculator(cost) {
     if (cost < 50){
         return 0.2 * Math.round((cost + Number.EPSILON) * 100) / 100
     } else if( 50 >= cost < 200){
@@ -21,10 +21,20 @@ function tipCalculator(cost) {
     }
 };
 
+function markTipCalculator(cost) {
+    if (cost < 100){
+        return 0.2 * Math.round((cost + Number.EPSILON) * 100) / 100
+    } else if( 100 >= cost < 300){
+        return 0.1 * Math.round((cost + Number.EPSILON) * 100) / 100 ;
+    }else{
+        return 0.25 * Math.round((cost + Number.EPSILON) * 100) / 100 ;
+    }
+};
 // I did a mistake is that - in line 22 adding element to billcost array, which leads infinite loop and memory crash
 // Initally tried to declare tipamount variable which doesn't require to declare.
+// Also passed function as parameter, how we use directly?
 
-function billCalculator(billArr, tipCost, finalCost){
+function billCalculator(billArr ,tipCalculator, tipCost, finalCost){
     for (let i =0; i < billArr.length; i++){
         tipAmount = tipCalculator(billArr[i]);
         tipCost.push(tipAmount);
@@ -32,8 +42,8 @@ function billCalculator(billArr, tipCost, finalCost){
     }
 };
 
-billCalculator(MarkbillCost, MarktipCost, MarkfinalCost);
-billCalculator(JohnbillCost,JohntipCost, JohnfinalCost);
+billCalculator(MarkbillCost, johnTipCalculator,MarktipCost, MarkfinalCost);
+billCalculator(JohnbillCost,markTipCalculator,JohntipCost, JohnfinalCost);
 
 console.log(`Mark tip costs are: [${MarktipCost}]`);
 console.log(`Mark total trip cost is [${MarkfinalCost}]`);
