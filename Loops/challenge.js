@@ -30,10 +30,14 @@ function markTipCalculator(cost) {
         return 0.25 * Math.round((cost + Number.EPSILON) * 100) / 100 ;
     }
 };
+
 // I did a mistake is that - in line 22 adding element to billcost array, which leads infinite loop and memory crash.
 // how can we use debug in Vscode or IntelliJ
 // Initally tried to declare tipamount variable which doesn't require to declare.
 // Also passed function as parameter, how we use directly?
+// everything is variable in javascript. In typescript function can easily recognise.
+// unfortunately in JS we couldn't able to achive like TS, by identifier name is only option.
+// Example of TS:- function myFunction(param1: type, param1: type, something: Function) {} , decorators in TS will purpose same as in Java Annotations.
 
 function billCalculator(billArr ,tipCalculator, tipCost, finalCost){
     for (let i =0; i < billArr.length; i++){
@@ -66,7 +70,7 @@ console.log(`John's family Avg tip cost: ${JohnTipAvg}`);
 (MarkTipAvg > JohnTipAvg) ? console.log(`Mark paid high tip;`):console.log(`John paid high tip`);
 
 // without any methods
-function averageTripCal(tipArr){
+function averageTipCal(tipArr){
     // if we declare sum variable outside function, first array sum became sum for initial value for second array.
     let sum = 0;
     for (let i = 0; i < tipArr.length; i++) {
@@ -75,8 +79,8 @@ function averageTripCal(tipArr){
     return sum / tipArr.length;
 };
 
-MarkTipAvg1 = averageTripCal(MarktipCost);
-JohnTipAvg1 = averageTripCal(JohntipCost);
+MarkTipAvg1 = averageTipCal(MarktipCost);
+JohnTipAvg1 = averageTipCal(JohntipCost);
 
 console.log(`Mark's family Avg tip cost: ${MarkTipAvg1}`);
 console.log(`John's family Avg tip cost: ${JohnTipAvg1}`);

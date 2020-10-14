@@ -18,6 +18,11 @@ let john ={
         }
     }
 };
+// stepOver - goes line by line; ->
+// stepin --> goes to nested functions
+//stepout -> exit from nested functions
+// Start --> goes next break point
+// Breakpoint -> pause the execution
 
 function parser(cost){
     return Math.round((cost + Number.EPSILON) * 100) / 100
