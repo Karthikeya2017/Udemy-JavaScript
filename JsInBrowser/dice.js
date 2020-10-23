@@ -1,11 +1,12 @@
-const prompt = require('prompt');
+const prompt = require('prompt-sync')();
 
 let playerScores = [0, 0];
 let activePlayer = 0;
 let score = 0;
-const hold = 'true';
+// let hold = 'true';
 const dice = Math.floor((Math.random() * 6) + 1);
-prompt.start();
+
+// prompt.start();
 
 // prompt.get(['rolldice'], function (err, result) {
 //     if (err) { return onErr(err); }
@@ -18,22 +19,24 @@ prompt.start();
 //     return 1;
 // }
 
-function rollDice() {
+async function rollDice() {
   const diceTurnValue = Math.floor((Math.random() * 6) + 1);;
   console.log(`diceTurnValue: ${diceTurnValue}`);
   if(diceTurnValue !== 1){
     score += diceTurnValue;
+    const hold = prompt('do you want hold?');
     if(hold === 'true'){
       playerScores[activePlayer]+=score;
-      console.log(`active player is: ${activePlayer}`);
       (activePlayer === 0)? activePlayer = 1: activePlayer =0;
       score = 0;
     }
+    console.log(`---- active player is: ${activePlayer} ----`);
   }else{
     (activePlayer === 0)? activePlayer = 1: activePlayer =0;
-    console.log(`${activePlayer} is became active player`);
+    console.log(`----> ${activePlayer} is became active player ----`);
     score = 0;
   }
+  console.log(playerScores);
 };
 
 console.log(playerScores);
