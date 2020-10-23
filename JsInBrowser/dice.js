@@ -1,4 +1,4 @@
-const prompt = require('prompt-sync')();
+const prompt = require('prompt-sync')({sigint: true});
 
 let playerScores = [0, 0];
 let activePlayer = 0;
@@ -15,11 +15,11 @@ async function rollDice() {
     const hold = prompt('do you want hold?');
     if(hold === 'true'){
       playerScores[activePlayer]+=score;
-      (activePlayer === 0)? activePlayer = 1: activePlayer =0;
+      (activePlayer === 0)? activePlayer = 1: activePlayer = 0;
       score = 0;
     }
   }else{
-    (activePlayer === 0)? activePlayer = 1: activePlayer =0;
+    (activePlayer === 0)? activePlayer = 1: activePlayer = 0;
     console.log(`----> ${activePlayer} is became active player <----`);
     score = 0;
   }
